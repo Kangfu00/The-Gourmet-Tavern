@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Gourmet Tavern - หยุดฟาร์มงานแล้วมาเติม HP!</title>
+    <title>The Mana Brew - กาแฟปลุกพลังระดับตำนาน</title>
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,6 +21,7 @@
             --deep-brown: #2C1B12;
             --gold: #D4AF37;
             --beige: #F5F5DC;
+            --coffee-accent: #4E342E;
         }
         
         body {
@@ -28,7 +29,7 @@
             background-color: var(--beige);
             color: var(--deep-brown);
             scroll-behavior: smooth;
-            padding-bottom: 80px; /* Space for sticky button on mobile */
+            padding-bottom: 80px;
         }
 
         @media (min-width: 768px) {
@@ -36,7 +37,7 @@
         }
 
         .bg-hero {
-            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
         }
@@ -45,7 +46,7 @@
             position: absolute;
             width: 4px;
             height: 4px;
-            background: white;
+            background: #D4AF37;
             border-radius: 50%;
             pointer-events: none;
             animation: sparkle-anim linear infinite;
@@ -69,7 +70,6 @@
             transform: translateY(0);
         }
 
-        /* Glowing Gold Button */
         .gold-button-glow {
             background-color: var(--gold);
             color: var(--deep-brown);
@@ -91,7 +91,6 @@
             transform: scale(1.05);
         }
 
-        /* Sticky Mobile CTA */
         .sticky-cta {
             position: fixed;
             bottom: 0;
@@ -108,6 +107,17 @@
         @media (min-width: 768px) {
             .sticky-cta { display: none; }
         }
+
+        .coffee-card {
+            background: var(--beige);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .coffee-card:hover {
+            border-color: var(--gold);
+            box-shadow: 0 10px 30px rgba(44, 27, 18, 0.1);
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -115,128 +125,113 @@
     <!-- --- Sticky Mobile Button --- -->
     <div class="sticky-cta">
         <a href="#menu" class="gold-button-glow flex items-center gap-2 px-8 py-3 rounded-full font-black text-lg w-full justify-center">
-            <i data-lucide="sword" class="w-5 h-5"></i>
-            เริ่มภารกิจความอร่อย คลิก!
+            <i data-lucide="coffee" class="w-5 h-5"></i>
+            เริ่มภารกิจเติมพลัง คลิก!
         </a>
     </div>
 
-    <!-- --- Section 1: Hero Section (The Hook) --- -->
+    <!-- --- Section 1: Hero Section --- -->
     <section class="relative h-screen flex items-center justify-center overflow-hidden bg-hero">
         <div id="sparkle-container" class="absolute inset-0 pointer-events-none z-10"></div>
         
         <div class="relative z-20 container mx-auto px-6 text-center">
             <div class="flex justify-center mb-6">
-                <i data-lucide="flame" class="w-16 h-16 text-[#D4AF37] animate-pulse"></i>
+                <i data-lucide="zap" class="w-16 h-16 text-[#D4AF37] animate-pulse"></i>
             </div>
             <h1 class="text-4xl md:text-7xl font-black mb-6 leading-tight text-white drop-shadow-2xl">
-                หยุดฟาร์มงาน... <br>
-                <span class="text-[#D4AF37]">แล้วมาเติม HP ด้วยมื้ออาหารระดับตำนาน!</span>
+                หยุดอาการ Stun ยามเช้า... <br>
+                <span class="text-[#D4AF37]">เติม Mana ด้วยกาแฟระดับตำนาน!</span>
             </h1>
             <p class="text-lg md:text-2xl mb-10 text-gray-200 max-w-3xl mx-auto font-medium">
-                ยกระดับมื้อธรรมดาให้เป็นมื้อพิเศษ ส่งไวปานเวทมนตร์ถึงปราสาทคุณ <span class="text-[#D4AF37] underline">ภายใน 30 นาที!</span>
+                ปลุกพลังในตัวคุณด้วยเมล็ดกาแฟคัดเกรด S-Rank คั่วสดใหม่ <br>
+                ส่งตรงถึงปราสาทคุณ <span class="text-[#D4AF37] underline">ภายใน 15 นาที!</span>
             </p>
             <a href="#menu" class="gold-button-glow inline-flex items-center gap-3 px-12 py-6 rounded-full text-2xl font-black">
-                <i data-lucide="sword" class="w-8 h-8"></i>
-                ⚔️ เริ่มภารกิจความอร่อย คลิกสั่งเลย!
+                <i data-lucide="coffee" class="w-8 h-8"></i>
+                ⚔️ เริ่มภารกิจเติมพลัง คลิกสั่งเลย!
             </a>
         </div>
     </section>
 
-    <!-- --- Section 2: Pain Point (ขยี้ปัญหา) --- -->
+    <!-- --- Section 2: Pain Point --- -->
     <section class="py-24 bg-[#2C1B12] text-[#F5F5DC] border-b border-[#D4AF37]/30">
         <div class="container mx-auto px-6">
             <div class="max-w-4xl mx-auto text-center fade-in">
                 <h2 class="text-3xl md:text-5xl font-bold mb-12">
-                    เบื่อไหม? กับการเจอ <span class="text-red-500">"Item ขยะ"</span> ในมื้ออาหาร...
+                    ติดสถานะ <span class="text-red-500">"Debuff"</span> จากกาแฟทั่วไปอยู่ใช่ไหม?
                 </h2>
                 <div class="grid md:grid-cols-3 gap-8 text-left">
                     <div class="bg-white/5 p-8 rounded-2xl border border-red-500/30 flex flex-col items-center text-center">
-                        <i data-lucide="snowflake" class="w-12 h-12 text-blue-400 mb-4"></i>
-                        <h4 class="text-xl font-bold mb-2">เย็นชืดเหมือนโดนแช่แข็ง</h4>
-                        <p class="text-gray-400">สั่งมาตั้งนาน แต่ได้อาหารที่เย็นจนเสียรสชาติ</p>
+                        <i data-lucide="droplets" class="w-12 h-12 text-blue-400 mb-4"></i>
+                        <h4 class="text-xl font-bold mb-2">รสชาติเหมือน Potion เสีย</h4>
+                        <p class="text-gray-400">กาแฟสำเร็จรูปที่ขมไหม้และไร้ชีวิตชีวา</p>
                     </div>
                     <div class="bg-white/5 p-8 rounded-2xl border border-red-500/30 flex flex-col items-center text-center">
-                        <i data-lucide="skull" class="w-12 h-12 text-gray-500 mb-4"></i>
-                        <h4 class="text-xl font-bold mb-2">รสชาติจืดชืดไร้พลัง</h4>
-                        <p class="text-gray-400">กินเพื่ออยู่ไปวันๆ ไม่มีความสุขในการลิ้มรส</p>
+                        <i data-lucide="moon" class="w-12 h-12 text-purple-400 mb-4"></i>
+                        <h4 class="text-xl font-bold mb-2">คำสาป Sleep ตลอดวัน</h4>
+                        <p class="text-gray-400">ง่วงซึมเหมือนโดนเวทมนตร์หลับใหล ทำงานไม่ได้</p>
                     </div>
                     <div class="bg-white/5 p-8 rounded-2xl border border-red-500/30 flex flex-col items-center text-center">
-                        <i data-lucide="clock" class="w-12 h-12 text-orange-500 mb-4"></i>
-                        <h4 class="text-xl font-bold mb-2">รอนานจนค่าหิวทะลุหลอด</h4>
-                        <p class="text-gray-400">กว่าจะมาส่ง พลังงานของคุณก็หมดไปกับการรอ</p>
+                        <i data-lucide="users" class="w-12 h-12 text-orange-500 mb-4"></i>
+                        <h4 class="text-xl font-bold mb-2">Boss ต่อแถวสุดโหด</h4>
+                        <p class="text-gray-400">ต้องเสียเวลาฟาร์มแถวรอคิวนานกว่าจะได้กิน</p>
                     </div>
                 </div>
                 <div class="mt-16 p-8 bg-[#D4AF37]/10 rounded-3xl border border-[#D4AF37]/50">
                     <p class="text-2xl font-bold text-[#D4AF37]">
-                        ✨ เราคือ "Healer" ที่จะมาชุบชีวิตมื้ออาหารของคุณ! ✨
+                        ✨ "The Mana Brew" พร้อมร่ายเวทปลุกคุณให้ตื่นจากคำสาป! ✨
                     </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- --- Section 3: The Solution --- -->
-    <section class="py-24 relative overflow-hidden bg-[#F5F5DC]">
-        <div class="container mx-auto px-6 text-center fade-in">
-            <div class="max-w-3xl mx-auto">
-                <h2 class="text-3xl md:text-5xl font-bold mb-8 text-[#2C1B12]">
-                    The Gourmet Tavern: <br>
-                    <span class="text-[#D4AF37]">โรงเตี๊ยมที่เปลี่ยนบ้านคุณให้เป็นสวรรค์</span>
-                </h2>
-                <p class="text-xl leading-relaxed text-[#2C1B12]/80">
-                    เราคัดสรรวัตถุดิบระดับ <strong class="text-[#D4AF37]">Legendary Grade</strong> ปรุงสดใหม่ทุกลำดับการสั่ง 
-                    เพื่อให้ทุกคำที่คุณทานคือการ <strong class="text-[#D4AF37]">'Level Up'</strong> ความสุขอย่างแท้จริง
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- --- Section 4: Legendary Menu --- -->
+    <!-- --- Section 3: Legendary Menu --- -->
     <section id="menu" class="py-24 bg-[#2C1B12]">
         <div class="container mx-auto px-6">
             <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 text-[#D4AF37] fade-in">
-                📜 Legendary Menu
+                📜 Legendary Brews
             </h2>
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Menu 1 -->
-                <div class="bg-[#F5F5DC] rounded-2xl overflow-hidden shadow-2xl fade-in group">
+                <div class="coffee-card rounded-2xl overflow-hidden shadow-2xl fade-in group">
                     <div class="h-64 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=800&q=80" alt="Imperial Beef Bowl" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <img src="https://images.unsplash.com/photo-1510707577719-ae7c14805e3a?auto=format&fit=crop&w=800&q=80" alt="Mana Espresso" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                     </div>
                     <div class="p-8">
-                        <h3 class="text-2xl font-bold mb-1">ข้าวหน้าเนื้อขุนนาง</h3>
-                        <p class="text-[#D4AF37] font-mono text-sm mb-4">Imperial Beef Bowl</p>
-                        <p class="text-gray-700">เนื้อนุ่มละลายในปาก เพิ่มค่า STR ทันที!</p>
+                        <h3 class="text-2xl font-bold mb-1">Mana Espresso</h3>
+                        <p class="text-[#D4AF37] font-mono text-sm mb-4">The Awakener</p>
+                        <p class="text-gray-700">เข้มข้นถึงขีดสุด ปลุกพลังเวทในตัวคุณให้พุ่งพล่าน!</p>
                         <button class="mt-6 w-full py-3 border-2 border-[#2C1B12] rounded-lg font-bold hover:bg-[#2C1B12] hover:text-[#F5F5DC] transition-colors">
-                            เพิ่มลงในกระเป๋าเก็บของ
+                            ร่ายเวทสั่งเลย
                         </button>
                     </div>
                 </div>
                 <!-- Menu 2 -->
-                <div class="bg-[#F5F5DC] rounded-2xl overflow-hidden shadow-2xl fade-in group">
+                <div class="coffee-card rounded-2xl overflow-hidden shadow-2xl fade-in group">
                     <div class="h-64 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=800&q=80" alt="Deep Forest Pesto" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <img src="https://images.unsplash.com/photo-1536939459926-301728717817?auto=format&fit=crop&w=800&q=80" alt="Golden Phoenix Latte" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                     </div>
                     <div class="p-8">
-                        <h3 class="text-2xl font-bold mb-1">สปาเกตตีเพรสโต้ป่าลึก</h3>
-                        <p class="text-[#D4AF37] font-mono text-sm mb-4">Deep Forest Pesto</p>
-                        <p class="text-gray-700">กลิ่นสมุนไพรสดชื่น ฟื้นฟูค่า Mana</p>
+                        <h3 class="text-2xl font-bold mb-1">Golden Phoenix Latte</h3>
+                        <p class="text-[#D4AF37] font-mono text-sm mb-4">Divine Smoothness</p>
+                        <p class="text-gray-700">นุ่มละมุนเหมือนขนฟีนิกซ์ ฟื้นฟูความสดชื่นทันที</p>
                         <button class="mt-6 w-full py-3 border-2 border-[#2C1B12] rounded-lg font-bold hover:bg-[#2C1B12] hover:text-[#F5F5DC] transition-colors">
-                            เพิ่มลงในกระเป๋าเก็บของ
+                            ร่ายเวทสั่งเลย
                         </button>
                     </div>
                 </div>
                 <!-- Menu 3 -->
-                <div class="bg-[#F5F5DC] rounded-2xl overflow-hidden shadow-2xl fade-in group">
+                <div class="coffee-card rounded-2xl overflow-hidden shadow-2xl fade-in group">
                     <div class="h-64 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=800&q=80" alt="Warrior's Fried Chicken" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=800&q=80" alt="Shadow Assassin Cold Brew" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                     </div>
                     <div class="p-8">
-                        <h3 class="text-2xl font-bold mb-1">ไก่ทอดนักรบ</h3>
-                        <p class="text-[#D4AF37] font-mono text-sm mb-4">Warrior's Fried Chicken</p>
-                        <p class="text-gray-700">กรอบนอกนุ่มใน อิ่มนานตลอดคืน</p>
+                        <h3 class="text-2xl font-bold mb-1">Shadow Cold Brew</h3>
+                        <p class="text-[#D4AF37] font-mono text-sm mb-4">Silent Strike</p>
+                        <p class="text-gray-700">เย็นยะเยือก ซ่อนความเข้มข้นไว้ภายใต้ความนุ่มนวล</p>
                         <button class="mt-6 w-full py-3 border-2 border-[#2C1B12] rounded-lg font-bold hover:bg-[#2C1B12] hover:text-[#F5F5DC] transition-colors">
-                            เพิ่มลงในกระเป๋าเก็บของ
+                            ร่ายเวทสั่งเลย
                         </button>
                     </div>
                 </div>
@@ -244,12 +239,11 @@
         </div>
     </section>
 
-    <!-- --- Section 5: Social Proof (Reviews) --- -->
+    <!-- --- Section 4: Social Proof --- -->
     <section class="py-24 bg-[#F5F5DC]">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl md:text-5xl font-bold text-center mb-16">⭐ รีวิวจากเหล่านักผจญภัย</h2>
+            <h2 class="text-3xl md:text-5xl font-bold text-center mb-16">⭐ รีวิวจากเหล่านักเดินทาง</h2>
             <div class="grid md:grid-cols-3 gap-8">
-                <!-- Review 1 -->
                 <div class="bg-white p-8 rounded-3xl shadow-xl border border-[#D4AF37]/20 fade-in">
                     <div class="flex text-[#D4AF37] mb-4">
                         <i data-lucide="star" class="fill-current w-5 h-5"></i>
@@ -258,16 +252,15 @@
                         <i data-lucide="star" class="fill-current w-5 h-5"></i>
                         <i data-lucide="star" class="fill-current w-5 h-5"></i>
                     </div>
-                    <p class="text-gray-700 mb-6 italic">"อาหารมาส่งไวมาก! ยังร้อนเหมือนเพิ่งออกจากเตา รสชาติเนื้อคือที่สุด เหมือนได้รางวัลจากการทำเควสสำเร็จจริงๆ"</p>
+                    <p class="text-gray-700 mb-6 italic">"Mana Espresso ของที่นี่คือของจริงครับ ผมปั่นงานข้ามคืนได้โดยไม่ติดสถานะ Sleep เลย สุดยอดมาก!"</p>
                     <div class="flex items-center gap-4">
                         <div class="w-12 h-12 rounded-full bg-[#2C1B12] text-white flex items-center justify-center font-bold">A</div>
                         <div>
                             <h5 class="font-bold">คุณอาร์ท</h5>
-                            <p class="text-xs text-gray-500">นักผจญภัยสายปั่นงาน</p>
+                            <p class="text-xs text-gray-500">นักผจญภัยสายโค้ด</p>
                         </div>
                     </div>
                 </div>
-                <!-- Review 2 -->
                 <div class="bg-white p-8 rounded-3xl shadow-xl border border-[#D4AF37]/20 fade-in">
                     <div class="flex text-[#D4AF37] mb-4">
                         <i data-lucide="star" class="fill-current w-5 h-5"></i>
@@ -276,16 +269,15 @@
                         <i data-lucide="star" class="fill-current w-5 h-5"></i>
                         <i data-lucide="star" class="fill-current w-5 h-5"></i>
                     </div>
-                    <p class="text-gray-700 mb-6 italic">"แพ็กเกจจิ้งสวยและแข็งแรงมาก ไม่หกเลอะเทอะเลย สปาเกตตีเพรสโต้หอมสมุนไพรสุดๆ แนะนำเลยครับ"</p>
+                    <p class="text-gray-700 mb-6 italic">"ลาเต้นุ่มมากกก เหมือนได้ Buff ความสุข กลิ่นหอมฟุ้งไปทั้งปราสาท ส่งไวทันใจมากค่ะ"</p>
                     <div class="flex items-center gap-4">
                         <div class="w-12 h-12 rounded-full bg-[#D4AF37] text-[#2C1B12] flex items-center justify-center font-bold">M</div>
                         <div>
                             <h5 class="font-bold">คุณเมย์</h5>
-                            <p class="text-xs text-gray-500">จอมเวทสายกิน</p>
+                            <p class="text-xs text-gray-500">จอมเวทสายดีไซน์</p>
                         </div>
                     </div>
                 </div>
-                <!-- Review 3 -->
                 <div class="bg-white p-8 rounded-3xl shadow-xl border border-[#D4AF37]/20 fade-in">
                     <div class="flex text-[#D4AF37] mb-4">
                         <i data-lucide="star" class="fill-current w-5 h-5"></i>
@@ -294,12 +286,12 @@
                         <i data-lucide="star" class="fill-current w-5 h-5"></i>
                         <i data-lucide="star" class="fill-current w-5 h-5"></i>
                     </div>
-                    <p class="text-gray-700 mb-6 italic">"ไก่ทอดนักรบคือของจริง กรอบนานมาก สั่งมากินตอนดูซีรีส์คือฟินสุดๆ ส่งไวทันใจวัยรุ่นมากครับ"</p>
+                    <p class="text-gray-700 mb-6 italic">"Cold Brew ที่นี่คือที่สุด เย็นสดชื่นและเข้มข้น แพ็กเกจจิ้งแน่นหนามาก ไม่หกเลยสักหยด"</p>
                     <div class="flex items-center gap-4">
                         <div class="w-12 h-12 rounded-full bg-gray-200 text-[#2C1B12] flex items-center justify-center font-bold">K</div>
                         <div>
                             <h5 class="font-bold">คุณเก่ง</h5>
-                            <p class="text-xs text-gray-500">อัศวินโต๊ะกลม</p>
+                            <p class="text-xs text-gray-500">อัศวินสายเกมเมอร์</p>
                         </div>
                     </div>
                 </div>
@@ -307,17 +299,17 @@
         </div>
     </section>
 
-    <!-- --- Section 6: The Final Offer (Irresistible Offer) --- -->
+    <!-- --- Section 5: The Final Offer --- -->
     <section class="py-24 bg-[#D4AF37] text-[#2C1B12]">
         <div class="container mx-auto px-6 text-center fade-in">
             <div class="max-w-4xl mx-auto">
-                <h2 class="text-4xl md:text-6xl font-black mb-6">🎁 Starter Quest Pack!</h2>
+                <h2 class="text-4xl md:text-6xl font-black mb-6">🎁 First Brew Quest!</h2>
                 <div class="bg-[#2C1B12] text-[#F5F5DC] p-12 rounded-[2rem] mb-10 shadow-2xl border-4 border-white/20">
                     <p class="text-3xl md:text-5xl font-black mb-6 text-[#D4AF37]">
-                        สั่งครั้งแรก ลดทันที 20%
+                        สั่งแก้วแรก ลดทันที 30%
                     </p>
                     <p class="text-xl md:text-2xl mb-8">
-                        🔥 แถมฟรี! <span class="text-[#D4AF37] font-bold">"Mana Potion"</span> (เครื่องดื่มสูตรลับ) 1 ขวด
+                        🔥 แถมฟรี! <span class="text-[#D4AF37] font-bold">"Energy Bean"</span> (เมล็ดกาแฟเคลือบช็อกโกแลต) 1 ซอง
                     </p>
                     <div class="inline-block px-6 py-2 bg-red-600 text-white rounded-full font-bold animate-bounce">
                         ⚠️ จำกัดเพียง 20 สิทธิ์ต่อวันเท่านั้น!
@@ -326,49 +318,29 @@
                 <button class="gold-button-glow bg-[#2C1B12] text-[#F5F5DC] px-16 py-8 rounded-full text-3xl font-black shadow-2xl">
                     ⚔️ รับสิทธิ์ก่อนใคร คลิกเลย!
                 </button>
-                <p class="mt-6 text-sm font-bold opacity-70">เหลือเพียง 4 สิทธิ์สุดท้ายสำหรับวันนี้!</p>
+                <p class="mt-6 text-sm font-bold opacity-70">เหลือเพียง 7 สิทธิ์สุดท้ายสำหรับวันนี้!</p>
             </div>
         </div>
     </section>
 
-    <!-- --- Section 7: Footer --- -->
+    <!-- --- Section 6: Footer --- -->
     <footer class="py-16 bg-[#2C1B12] text-[#F5F5DC]/60 border-t border-white/10">
-        <div class="container mx-auto px-6">
-            <div class="grid md:grid-cols-3 gap-12 mb-12">
-                <div>
-                    <div class="flex items-center gap-3 mb-6 text-[#D4AF37]">
-                        <i data-lucide="utensils-crossed" class="w-8 h-8"></i>
-                        <span class="text-2xl font-bold">The Gourmet Tavern</span>
-                    </div>
-                    <p class="leading-relaxed">
-                        โรงเตี๊ยมแห่งความอร่อยที่พร้อมส่งมอบมื้ออาหารระดับตำนานถึงมือคุณ 
-                        ทุกเมนูปรุงด้วยเวทมนตร์แห่งความใส่ใจ
-                    </p>
-                </div>
-                <div>
-                    <h4 class="text-white font-bold text-xl mb-6">ติดต่อเรา</h4>
-                    <ul class="space-y-4">
-                        <li class="flex items-center gap-3">
-                            <i data-lucide="map-pin" class="w-5 h-5 text-[#D4AF37]"></i>
-                            ปทุมธานี, ประเทศไทย
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <i data-lucide="phone" class="w-5 h-5 text-[#D4AF37]"></i>
-                            02-XXX-XXXX
-                        </li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-white font-bold text-xl mb-6">ติดตามเควสใหม่ๆ</h4>
-                    <div class="flex gap-4">
-                        <a href="#" class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#D4AF37] hover:text-[#2C1B12] transition-all"><i data-lucide="facebook"></i></a>
-                        <a href="#" class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#D4AF37] hover:text-[#2C1B12] transition-all"><i data-lucide="instagram"></i></a>
-                        <a href="#" class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#D4AF37] hover:text-[#2C1B12] transition-all"><i data-lucide="twitter"></i></a>
-                    </div>
-                </div>
+        <div class="container mx-auto px-6 text-center">
+            <div class="flex items-center justify-center gap-3 mb-6 text-[#D4AF37]">
+                <i data-lucide="coffee" class="w-8 h-8"></i>
+                <span class="text-2xl font-bold">The Mana Brew</span>
             </div>
-            <div class="pt-12 border-t border-white/5 text-center text-sm">
-                © 2026 The Gourmet Tavern. All Rights Reserved. | Created for Legendary Adventurers.
+            <p class="max-w-md mx-auto mb-8">
+                โรงคั่วกาแฟระดับตำนานที่พร้อมร่ายเวทปลุกพลังในตัวคุณ 
+                ส่งตรงถึงมือด้วยความเร็วปานสายฟ้า
+            </p>
+            <div class="flex justify-center gap-6 mb-12">
+                <a href="#" class="hover:text-[#D4AF37] transition-colors"><i data-lucide="facebook"></i></a>
+                <a href="#" class="hover:text-[#D4AF37] transition-colors"><i data-lucide="instagram"></i></a>
+                <a href="#" class="hover:text-[#D4AF37] transition-colors"><i data-lucide="twitter"></i></a>
+            </div>
+            <div class="pt-12 border-t border-white/5 text-sm">
+                © 2026 The Mana Brew. All Rights Reserved. | Crafted for Legendary Adventurers.
             </div>
         </div>
     </footer>
