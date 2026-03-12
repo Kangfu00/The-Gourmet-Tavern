@@ -21,8 +21,8 @@
             --coffee-dark: #2C1B12;
             --coffee-medium: #4E342E;
             --gold: #D4AF37;
-            --cta-red: #B22222;
-            --cta-orange: #E67E22;
+            --cta-red: #D32F2F;
+            --cta-orange: #F57C00;
             --cream: #FDFBF7;
         }
         
@@ -36,7 +36,7 @@
         .serif { font-family: 'Playfair Display', serif; }
 
         .bg-hero {
-            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1920&q=80');
+            background-image: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
         }
@@ -52,222 +52,211 @@
             transform: translateY(0);
         }
 
-        .btn-order {
-            background-color: var(--cta-red);
-            color: white;
-            box-shadow: 0 4px 20px rgba(178, 34, 34, 0.4);
-        }
-
-        .btn-reserve {
+        /* High Contrast CTA Buttons */
+        .btn-orange-cta {
             background-color: var(--cta-orange);
             color: white;
-            box-shadow: 0 4px 20px rgba(230, 126, 34, 0.4);
+            box-shadow: 0 10px 25px rgba(245, 124, 0, 0.4);
+            border: 2px solid var(--cta-orange);
         }
 
-        .btn-order:hover, .btn-reserve:hover {
-            transform: translateY(-4px);
-            filter: brightness(1.2);
+        .btn-red-cta {
+            background-color: var(--cta-red);
+            color: white;
+            box-shadow: 0 10px 25px rgba(211, 47, 47, 0.4);
+            border: 2px solid var(--cta-red);
+        }
+
+        .btn-orange-cta:hover, .btn-red-cta:hover {
+            transform: scale(1.05) translateY(-5px);
+            filter: brightness(1.1);
+            background-color: transparent;
+            color: white;
         }
 
         .signature-badge {
-            background: linear-gradient(45deg, var(--gold), #F39C12);
+            background: linear-gradient(45deg, #FF8F00, #FF6F00);
             color: white;
-            padding: 2px 10px;
+            padding: 4px 12px;
             border-radius: 99px;
-            font-size: 10px;
+            font-size: 11px;
             text-transform: uppercase;
             font-weight: 900;
+            letter-spacing: 1px;
         }
 
-        .story-bg {
-            background-image: radial-gradient(circle at center, #ffffff 0%, #FDFBF7 100%);
+        .review-card {
+            background: white;
+            border-radius: 2.5rem;
+            padding: 3rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.03);
+            border: 1px solid rgba(0,0,0,0.02);
+            transition: all 0.3s ease;
+        }
+
+        .review-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.06);
         }
     </style>
 </head>
 <body class="antialiased">
 
     <!-- --- Navigation --- -->
-    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100">
+    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <div class="flex items-center gap-2">
-                <i data-lucide="coffee" class="text-[#D4AF37]"></i>
+                <i data-lucide="coffee" class="text-[#F57C00]"></i>
                 <span class="text-xl font-black tracking-tighter uppercase">The Mana Brew</span>
             </div>
-            <div class="hidden md:flex gap-8 font-medium text-sm uppercase tracking-widest">
-                <a href="#story" class="hover:text-[#D4AF37]">Our Story</a>
-                <a href="#menu" class="hover:text-[#D4AF37]">Signature</a>
-                <a href="#reviews" class="hover:text-[#D4AF37]">Reviews</a>
+            <div class="hidden md:flex gap-8 font-bold text-xs uppercase tracking-widest">
+                <a href="#menu" class="hover:text-[#F57C00] transition-colors">Signature</a>
+                <a href="#reviews" class="hover:text-[#F57C00] transition-colors">Reviews</a>
+                <a href="#location" class="hover:text-[#F57C00] transition-colors">Location</a>
             </div>
             <div class="hidden md:flex gap-4">
-                <a href="#reserve" class="btn-reserve px-6 py-2 rounded-full text-xs font-bold uppercase tracking-tighter transition-all">
-                    Visit Our Cafe
+                <a href="#reserve" class="btn-orange-cta px-6 py-2 rounded-full text-xs font-black uppercase tracking-tighter transition-all">
+                    Visit Us Today
                 </a>
             </div>
         </div>
     </nav>
 
-    <!-- --- Section 1: Hero Section (High Conversion) --- -->
+    <!-- --- Section 1: Hero Section (Conversion Focus) --- -->
     <section class="relative h-[95vh] flex items-center justify-center overflow-hidden bg-hero">
         <div class="relative z-20 container mx-auto px-6 text-center text-white">
-            <h1 class="serif text-5xl md:text-8xl mb-6 leading-tight drop-shadow-2xl">
+            <h1 class="serif text-6xl md:text-9xl mb-8 leading-tight drop-shadow-2xl">
                 Your Perfect Coffee <br> Break Starts Here ☕
             </h1>
-            <p class="text-lg md:text-xl mb-12 tracking-[0.3em] uppercase font-light drop-shadow-md">
+            <p class="text-lg md:text-2xl mb-14 tracking-[0.4em] uppercase font-light drop-shadow-md">
                 Fresh Coffee • Cozy Atmosphere • Great Moments
             </p>
             <div class="flex flex-col md:flex-row justify-center gap-8">
-                <a href="#order" class="btn-order px-14 py-6 rounded-full text-2xl font-black flex items-center justify-center gap-3 transition-all">
-                    <i data-lucide="shopping-cart"></i> Order Your Coffee Now
+                <a href="#order" class="btn-orange-cta px-16 py-7 rounded-full text-2xl font-black flex items-center justify-center gap-4 transition-all">
+                    <i data-lucide="shopping-cart" class="w-8 h-8"></i> Order Coffee Now
                 </a>
-                <a href="#reserve" class="btn-reserve px-14 py-6 rounded-full text-2xl font-black flex items-center justify-center gap-3 transition-all">
-                    <i data-lucide="map-pin"></i> Visit Our Cafe Today
+                <a href="#reserve" class="btn-red-cta px-16 py-7 rounded-full text-2xl font-black flex items-center justify-center gap-4 transition-all">
+                    <i data-lucide="map-pin" class="w-8 h-8"></i> Visit Our Cafe Today
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- --- Section 2: Our Coffee Story (Brand Identity) --- -->
-    <section id="story" class="py-24 story-bg">
+    <!-- --- Section 2: Our Signature Drinks (Memorable Menu) --- -->
+    <section id="menu" class="py-32 bg-white">
         <div class="container mx-auto px-6">
-            <div class="grid md:grid-cols-2 gap-16 items-center">
-                <div class="fade-in">
-                    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1000&q=80" class="rounded-[3rem] shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-700" alt="Our Story">
-                </div>
-                <div class="fade-in">
-                    <h2 class="serif text-4xl md:text-6xl mb-8">Our Coffee Story</h2>
-                    <p class="text-xl text-gray-600 leading-relaxed mb-8">
-                        "เราเริ่มต้นคาเฟ่แห่งนี้ด้วยความหลงใหลในกลิ่นหอมของกาแฟคั่วสดและช่วงเวลาที่แสนอบอุ่น" <br><br>
-                        ที่ The Mana Brew เราเชื่อว่ากาแฟหนึ่งแก้วไม่ใช่แค่เครื่องดื่ม แต่คือการเริ่มต้นของบทสนทนา แรงบันดาลใจ และการพักผ่อนที่แท้จริง เราคัดสรรเมล็ดกาแฟด้วยมือและรังสรรค์ทุกแก้วด้วยหัวใจ เพื่อให้คุณได้รับประสบการณ์ที่ดีที่สุดในทุกครั้งที่มาเยือน
-                    </p>
-                    <div class="flex items-center gap-4 text-[#D4AF37]">
-                        <div class="h-[1px] w-12 bg-[#D4AF37]"></div>
-                        <span class="font-bold tracking-widest uppercase text-sm">Crafted with Passion</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- --- Section 3: Signature Menu (Chef's Recommendation) --- -->
-    <section id="menu" class="py-24 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16 fade-in">
-                <h2 class="serif text-4xl md:text-5xl mb-4">🔥 Signature Drinks</h2>
-                <p class="text-gray-500 tracking-widest uppercase text-sm">Our most loved creations</p>
+            <div class="text-center mb-20 fade-in">
+                <h2 class="serif text-5xl md:text-7xl mb-6">Our Signature Drinks</h2>
+                <p class="text-gray-400 uppercase tracking-[0.3em] text-sm font-bold">🔥 เมนูแนะนำที่ลูกค้าต้องลอง</p>
             </div>
             
-            <div class="grid md:grid-cols-3 gap-10">
+            <div class="grid md:grid-cols-3 gap-12">
                 <!-- Signature 1: Honey Latte -->
-                <div class="bg-[#FDFBF7] rounded-[2.5rem] overflow-hidden shadow-lg hover:shadow-2xl transition-all fade-in group">
-                    <div class="h-72 overflow-hidden relative">
-                        <div class="absolute top-6 left-6 z-10">
+                <div class="rounded-[3rem] overflow-hidden fade-in group">
+                    <div class="h-[450px] overflow-hidden relative">
+                        <div class="absolute top-8 left-8 z-10">
                             <span class="signature-badge">Best Seller</span>
                         </div>
-                        <img src="https://gospecialtycoffee.com/medialibrary/2023/07/latte-gospecialtycoffe.jpg" alt="Honey Latte" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" referrerPolicy="no-referrer">
-                    </div>
-                    <div class="p-10">
-                        <h4 class="serif text-2xl mb-3">Honey Latte</h4>
-                        <p class="text-sm text-gray-500 mb-8">ความนุ่มละมุนของนมสดผสมผสานกับความหวานธรรมชาติจากน้ำผึ้งป่าเดือนห้า</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-3xl font-black text-[#D4AF37]">$4.50</span>
-                            <button class="btn-order px-8 py-3 rounded-full text-sm font-bold uppercase">Order</button>
+                        <img src="https://gospecialtycoffee.com/medialibrary/2023/07/latte-gospecialtycoffe.jpg" alt="Honey Latte" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" referrerPolicy="no-referrer">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-10">
+                            <button class="w-full btn-orange-cta py-4 rounded-full font-black uppercase">Order Now</button>
                         </div>
                     </div>
+                    <div class="py-8 text-center">
+                        <h4 class="serif text-3xl mb-2">Honey Latte</h4>
+                        <p class="text-gray-500 mb-4 italic">“Best latte I've ever tasted!” — Sarah J.</p>
+                        <span class="text-3xl font-black text-[#F57C00]">$4.50</span>
+                    </div>
                 </div>
-                <!-- Signature 2: Caramel Coffee -->
-                <div class="bg-[#FDFBF7] rounded-[2.5rem] overflow-hidden shadow-lg hover:shadow-2xl transition-all fade-in group">
-                    <div class="h-72 overflow-hidden relative">
-                        <div class="absolute top-6 left-6 z-10">
+                <!-- Signature 2: Caramel Macchiato -->
+                <div class="rounded-[3rem] overflow-hidden fade-in group">
+                    <div class="h-[450px] overflow-hidden relative">
+                        <div class="absolute top-8 left-8 z-10">
                             <span class="signature-badge">Must Try</span>
                         </div>
-                        <img src="https://dinnerthendessert.com/wp-content/uploads/2023/10/Caramel-Macchiato-10.jpg" alt="Caramel Coffee" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" referrerPolicy="no-referrer">
-                    </div>
-                    <div class="p-10">
-                        <h4 class="serif text-2xl mb-3">Caramel Macchiato</h4>
-                        <p class="text-sm text-gray-500 mb-8">กาแฟเข้มข้นเลเยอร์สวยงาม ท็อปด้วยซอสคาราเมลโฮมเมดที่หอมหวาน</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-3xl font-black text-[#D4AF37]">$4.75</span>
-                            <button class="btn-order px-8 py-3 rounded-full text-sm font-bold uppercase">Order</button>
+                        <img src="https://images.unsplash.com/photo-1572286258217-315822c3f424?auto=format&fit=crop&w=800&q=80" alt="Caramel Macchiato" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" referrerPolicy="no-referrer">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-10">
+                            <button class="w-full btn-orange-cta py-4 rounded-full font-black uppercase">Order Now</button>
                         </div>
+                    </div>
+                    <div class="py-8 text-center">
+                        <h4 class="serif text-3xl mb-2">Caramel Macchiato</h4>
+                        <p class="text-gray-500 mb-4 italic">Rich caramel meets smooth espresso</p>
+                        <span class="text-3xl font-black text-[#F57C00]">$4.75</span>
                     </div>
                 </div>
-                <!-- Signature 3: Mocha Special -->
-                <div class="bg-[#FDFBF7] rounded-[2.5rem] overflow-hidden shadow-lg hover:shadow-2xl transition-all fade-in group">
-                    <div class="h-72 overflow-hidden relative">
-                        <div class="absolute top-6 left-6 z-10">
-                            <span class="signature-badge">Chef's Choice</span>
+                <!-- Signature 3: Mocha Deluxe -->
+                <div class="rounded-[3rem] overflow-hidden fade-in group">
+                    <div class="h-[450px] overflow-hidden relative">
+                        <div class="absolute top-8 left-8 z-10">
+                            <span class="signature-badge">Premium</span>
                         </div>
-                        <img src="https://www.thespruceeats.com/thmb/Hz677yfVdPECquUOekjv0b9yXTE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/SES-mocha-4797918-step-04-599987714aec41aba02f1f870e900dd8.jpg" alt="Mocha Special" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" referrerPolicy="no-referrer">
+                        <img src="https://images.unsplash.com/photo-1544787210-2213d64ad998?auto=format&fit=crop&w=800&q=80" alt="Mocha Deluxe" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" referrerPolicy="no-referrer">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-10">
+                            <button class="w-full btn-orange-cta py-4 rounded-full font-black uppercase">Order Now</button>
+                        </div>
                     </div>
-                    <div class="p-10">
-                        <h4 class="serif text-2xl mb-3">Mocha Special</h4>
-                        <p class="text-sm text-gray-500 mb-8">ดาร์กช็อกโกแลตพรีเมียมผสมกับเอสเพรสโซ่ช็อต ให้รสชาติที่เข้มข้นและลงตัว</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-3xl font-black text-[#D4AF37]">$5.00</span>
-                            <button class="btn-order px-8 py-3 rounded-full text-sm font-bold uppercase">Order</button>
-                        </div>
+                    <div class="py-8 text-center">
+                        <h4 class="serif text-3xl mb-2">Mocha Deluxe</h4>
+                        <p class="text-gray-500 mb-4 italic">Dark chocolate bliss in every sip</p>
+                        <span class="text-3xl font-black text-[#F57C00]">$5.25</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- --- Section 4: Customer Reviews (Social Proof) --- -->
-    <section id="reviews" class="py-24 bg-[#FDFBF7]">
+    <!-- --- Section 3: Customer Reviews (Social Proof) --- -->
+    <section id="reviews" class="py-32 bg-[#FDFBF7]">
         <div class="container mx-auto px-6">
-            <div class="text-center mb-16 fade-in">
-                <h2 class="serif text-4xl md:text-5xl mb-4">What Our Guests Say</h2>
-                <p class="text-gray-400 uppercase tracking-widest text-xs">92% of customers trust our reviews</p>
+            <div class="text-center mb-20 fade-in">
+                <h2 class="serif text-5xl md:text-7xl mb-6">What Our Guests Say</h2>
+                <div class="inline-flex items-center gap-3 bg-white px-6 py-3 rounded-full shadow-sm border border-gray-100">
+                    <i data-lucide="info" class="w-4 h-4 text-[#F57C00]"></i>
+                    <p class="text-xs font-bold uppercase tracking-widest text-gray-500">
+                        📊 92% ของลูกค้าเชื่อรีวิวจากผู้ใช้จริง (Nielsen Research)
+                    </p>
+                </div>
             </div>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white p-12 rounded-[3rem] shadow-xl fade-in border border-gray-50">
-                    <div class="flex text-[#D4AF37] mb-6">
-                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
-                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
-                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
-                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
-                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
+            
+            <div class="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+                <!-- Review 1 -->
+                <div class="review-card fade-in">
+                    <div class="flex text-[#FFD700] mb-8 gap-1">
+                        <i data-lucide="star" class="fill-current w-6 h-6"></i>
+                        <i data-lucide="star" class="fill-current w-6 h-6"></i>
+                        <i data-lucide="star" class="fill-current w-6 h-6"></i>
+                        <i data-lucide="star" class="fill-current w-6 h-6"></i>
+                        <i data-lucide="star" class="fill-current w-6 h-6"></i>
                     </div>
-                    <p class="text-xl serif italic mb-10 leading-relaxed">“Best coffee in town! The atmosphere is so peaceful and perfect for working or relaxing.”</p>
-                    <div class="flex items-center gap-4">
-                        <div class="w-14 h-14 bg-[#2C1B12] rounded-full flex items-center justify-center text-white font-bold">S</div>
+                    <p class="text-3xl serif italic mb-10 leading-relaxed text-[#2C1B12]">
+                        “Best latte I've ever tasted! The balance of coffee and creamy milk is just perfect.”
+                    </p>
+                    <div class="flex items-center gap-5">
+                        <div class="w-16 h-16 bg-[#2C1B12] rounded-full flex items-center justify-center text-white font-black text-xl">S</div>
                         <div>
-                            <h5 class="font-bold">Sarah Jenkins</h5>
-                            <p class="text-xs text-gray-400">Verified Customer</p>
+                            <h5 class="font-black text-lg">Sarah Jenkins</h5>
+                            <p class="text-xs text-gray-400 uppercase tracking-widest">Verified Guest</p>
                         </div>
                     </div>
                 </div>
-                <div class="bg-white p-12 rounded-[3rem] shadow-xl fade-in border border-gray-50">
-                    <div class="flex text-[#D4AF37] mb-6">
-                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
-                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
-                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
-                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
-                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
+                <!-- Review 2 -->
+                <div class="review-card fade-in">
+                    <div class="flex text-[#FFD700] mb-8 gap-1">
+                        <i data-lucide="star" class="fill-current w-6 h-6"></i>
+                        <i data-lucide="star" class="fill-current w-6 h-6"></i>
+                        <i data-lucide="star" class="fill-current w-6 h-6"></i>
+                        <i data-lucide="star" class="fill-current w-6 h-6"></i>
+                        <i data-lucide="star" class="fill-current w-6 h-6"></i>
                     </div>
-                    <p class="text-xl serif italic mb-10 leading-relaxed">“Love the cozy atmosphere! The Honey Latte is truly magical and a must-try.”</p>
-                    <div class="flex items-center gap-4">
-                        <div class="w-14 h-14 bg-[#D4AF37] rounded-full flex items-center justify-center text-[#2C1B12] font-bold">M</div>
+                    <p class="text-3xl serif italic mb-10 leading-relaxed text-[#2C1B12]">
+                        “Cozy atmosphere and great coffee. It's my favorite spot to relax and get some work done.”
+                    </p>
+                    <div class="flex items-center gap-5">
+                        <div class="w-16 h-16 bg-[#F57C00] rounded-full flex items-center justify-center text-white font-black text-xl">M</div>
                         <div>
-                            <h5 class="font-bold">Mark Thompson</h5>
-                            <p class="text-xs text-gray-400">Verified Customer</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-white p-12 rounded-[3rem] shadow-xl fade-in border border-gray-50">
-                    <div class="flex text-[#D4AF37] mb-6">
-                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
-                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
-                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
-                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
-                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
-                    </div>
-                    <p class="text-xl serif italic mb-10 leading-relaxed">“Great service and even better coffee. My new favorite spot in the city for sure!”</p>
-                    <div class="flex items-center gap-4">
-                        <div class="w-14 h-14 bg-gray-200 rounded-full flex items-center justify-center text-gray-600 font-bold">E</div>
-                        <div>
-                            <h5 class="font-bold">Emma Wilson</h5>
-                            <p class="text-xs text-gray-400">Verified Customer</p>
+                            <h5 class="font-black text-lg">Mark Thompson</h5>
+                            <p class="text-xs text-gray-400 uppercase tracking-widest">Verified Guest</p>
                         </div>
                     </div>
                 </div>
@@ -275,35 +264,35 @@
         </div>
     </section>
 
-    <!-- --- Section 5: Final CTA (Conversion) --- -->
-    <section id="reserve" class="py-32 bg-[#2C1B12] text-white relative overflow-hidden">
+    <!-- --- Section 4: Final CTA (High Conversion) --- -->
+    <section id="reserve" class="py-40 bg-[#2C1B12] text-white relative overflow-hidden">
         <div class="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1920&q=80')] bg-cover"></div>
         <div class="container mx-auto px-6 text-center relative z-10 fade-in">
-            <h2 class="serif text-4xl md:text-7xl mb-10">Experience the Magic Today</h2>
-            <p class="text-xl mb-14 text-gray-300 max-w-3xl mx-auto leading-relaxed">
-                ไม่ว่าคุณจะต้องการพื้นที่ทำงานที่เงียบสงบ หรือมุมพักผ่อนกับกาแฟแก้วโปรด <br> The Mana Brew พร้อมต้อนรับคุณด้วยความอบอุ่นเสมอ
+            <h2 class="serif text-5xl md:text-8xl mb-12">Join Us for a Cup of Magic</h2>
+            <p class="text-xl md:text-2xl mb-16 text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                สัมผัสรสชาติกาแฟระดับพรีเมียมในบรรยากาศที่อบอุ่นที่สุด <br> เราพร้อมต้อนรับคุณทุกวันด้วยความใส่ใจ
             </p>
-            <div class="flex flex-col md:flex-row justify-center gap-8">
-                <button class="btn-order px-16 py-8 rounded-full text-3xl font-black shadow-2xl transition-all">
-                    Order Your Coffee Now
-                </button>
-                <button class="btn-reserve px-16 py-8 rounded-full text-3xl font-black shadow-2xl transition-all">
+            <div class="flex flex-col md:flex-row justify-center gap-10">
+                <a href="#order" class="btn-orange-cta px-20 py-8 rounded-full text-3xl font-black shadow-2xl transition-all">
+                    Order Coffee Now
+                </a>
+                <a href="#location" class="btn-red-cta px-20 py-8 rounded-full text-3xl font-black shadow-2xl transition-all">
                     Visit Our Cafe Today
-                </button>
+                </a>
             </div>
-            <p class="mt-12 text-sm text-[#D4AF37] font-bold tracking-widest uppercase">Open Daily: 08:00 – 18:00</p>
+            <p class="mt-16 text-sm text-[#F57C00] font-black tracking-[0.3em] uppercase">Open Daily: 08:00 – 18:00</p>
         </div>
     </section>
 
     <!-- --- Footer --- -->
-    <footer class="py-16 bg-[#1a100b] text-gray-500 text-center text-xs tracking-widest uppercase">
+    <footer class="py-20 bg-[#1a100b] text-gray-500 text-center text-xs tracking-widest uppercase">
         <div class="container mx-auto px-6">
-            <div class="flex justify-center gap-8 mb-10">
+            <div class="flex justify-center gap-10 mb-12">
                 <a href="#" class="hover:text-white transition-colors"><i data-lucide="facebook" class="w-6 h-6"></i></a>
                 <a href="#" class="hover:text-white transition-colors"><i data-lucide="instagram" class="w-6 h-6"></i></a>
                 <a href="#" class="hover:text-white transition-colors"><i data-lucide="twitter" class="w-6 h-6"></i></a>
             </div>
-            <p>© 2026 The Mana Brew. All Rights Reserved. | Crafted with Love</p>
+            <p>© 2026 The Mana Brew. All Rights Reserved. | Crafted with Passion</p>
         </div>
     </footer>
 
