@@ -1,13 +1,342 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Google AI Studio App</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
-</html>
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Gourmet Tavern - ลิ้มรสความอร่อยระดับตำนาน</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        :root {
+            --deep-brown: #2C1B12;
+            --gold: #D4AF37;
+            --beige: #F5F5DC;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--beige);
+            color: var(--deep-brown);
+            scroll-behavior: smooth;
+        }
 
+        .bg-hero {
+            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .sparkle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: white;
+            border-radius: 50%;
+            pointer-events: none;
+            animation: sparkle-anim linear infinite;
+            opacity: 0;
+        }
+
+        @keyframes sparkle-anim {
+            0% { transform: translateY(0) scale(0); opacity: 0; }
+            50% { opacity: 1; scale: 1.5; }
+            100% { transform: translateY(-100px) scale(0); opacity: 0; }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .gold-button {
+            background-color: var(--gold);
+            color: var(--deep-brown);
+            transition: all 0.3s ease;
+            border: 2px solid var(--gold);
+        }
+
+        .gold-button:hover {
+            background-color: transparent;
+            color: var(--gold);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- --- Section 1: Hero Section --- -->
+    <section class="relative h-screen flex items-center justify-center overflow-hidden bg-hero">
+        <div id="sparkle-container" class="absolute inset-0 pointer-events-none z-10"></div>
+        
+        <div class="relative z-20 container mx-auto px-6 text-center">
+            <div class="flex justify-center mb-6">
+                <i data-lucide="utensils-crossed" class="w-16 h-16 text-[#D4AF37]"></i>
+            </div>
+            <h1 class="text-4xl md:text-7xl font-bold mb-6 leading-tight text-white drop-shadow-lg">
+                ลิ้มรสความอร่อยระดับตำนาน... <br>
+                <span class="text-[#D4AF37]">ส่งตรงถึงปราสาทคุณภายใน 30 นาที!</span>
+            </h1>
+            <p class="text-lg md:text-2xl mb-10 text-gray-200 max-w-3xl mx-auto font-light italic">
+                ยกระดับมื้อธรรมดาให้เป็นมื้อพิเศษ ด้วยวัตถุดิบเกรดพรีเมียมและการปรุงที่ใส่ใจเหมือนเตรียมสำรับให้ราชา
+            </p>
+            <a href="#menu" class="gold-button inline-flex items-center gap-3 px-10 py-5 rounded-full text-xl font-bold">
+                <i data-lucide="sword" class="w-6 h-6"></i>
+                เริ่มการผจญภัยความอร่อย คลิกสั่งเลย!
+            </a>
+        </div>
+    </section>
+
+    <!-- --- Section 2: The Problem --- -->
+    <section class="py-24 bg-[#2C1B12] text-[#F5F5DC]">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center mb-16 fade-in">
+                <h2 class="text-3xl md:text-5xl font-bold mb-8">
+                    เหนื่อยจากการ 'ฟาร์มงาน' มาทั้งวัน แต่ต้องมาเจอกับ...
+                </h2>
+                <div class="grid md:grid-cols-3 gap-8 text-left">
+                    <div class="bg-white/5 p-8 rounded-2xl border border-white/10 flex flex-col items-center text-center fade-in">
+                        <span class="text-4xl mb-4">❌</span>
+                        <p class="text-lg">อาหารเดลิเวอรี่ทั่วไปที่เย็นชืดและเหี่ยวเฉา</p>
+                    </div>
+                    <div class="bg-white/5 p-8 rounded-2xl border border-white/10 flex flex-col items-center text-center fade-in">
+                        <span class="text-4xl mb-4">❌</span>
+                        <p class="text-lg">รสชาติจำเจเหมือนกิน 'Common Item' ทุกวัน</p>
+                    </div>
+                    <div class="bg-white/5 p-8 rounded-2xl border border-white/10 flex flex-col items-center text-center fade-in">
+                        <span class="text-4xl mb-4">❌</span>
+                        <p class="text-lg">ต้องฝ่า 'Boss' รถติดและแดดร้อนออกไปหาของกินเอง</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- Section 3: The Solution --- -->
+    <section class="py-24 relative overflow-hidden bg-[#F5F5DC]">
+        <div class="container mx-auto px-6 text-center fade-in">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="text-3xl md:text-5xl font-bold mb-8 text-[#2C1B12]">
+                    The Gourmet Tavern: <br>
+                    <span class="text-[#D4AF37]">เปลี่ยนบ้านคุณให้เป็นโรงเตี๊ยมสุดหรู</span>
+                </h2>
+                <p class="text-xl leading-relaxed text-[#2C1B12]/80">
+                    เราคัดสรรเฉพาะวัตถุดิบชั้นเลิศ ปรุงสดใหม่ทุกลำดับการสั่ง และใช้ระบบการจัดส่งที่รวดเร็วปานเวทมนตร์ 
+                    เพื่อให้ทุกคำที่คุณทานคือการ <strong class="text-[#D4AF37]">'Level Up'</strong> ความสุขอย่างแท้จริง
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- Section 4: Features & Benefits --- -->
+    <section class="py-24 bg-[#F5F5DC] border-y border-[#D4AF37]/20">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-12">
+                <div class="bg-white p-10 rounded-3xl shadow-xl border-b-4 border-[#D4AF37] text-center fade-in">
+                    <div class="flex justify-center mb-6"><i data-lucide="flame" class="w-12 h-12 text-[#D4AF37]"></i></div>
+                    <h3 class="text-2xl font-bold mb-4">Top-Tier Quality</h3>
+                    <p class="text-gray-600">เนื้อสัตว์และผักสดส่งตรงจากฟาร์ม (Organic 100%) ไม่ใส่ผงชูรส</p>
+                </div>
+                <div class="bg-white p-10 rounded-3xl shadow-xl border-b-4 border-[#D4AF37] text-center fade-in">
+                    <div class="flex justify-center mb-6"><i data-lucide="zap" class="w-12 h-12 text-[#D4AF37]"></i></div>
+                    <h3 class="text-2xl font-bold mb-4">Haste Delivery</h3>
+                    <p class="text-gray-600">ระบบคำนวณเส้นทางด้วย AI ส่งไวถึงมือในขณะที่อาหารยังร้อนกรุ่น</p>
+                </div>
+                <div class="bg-white p-10 rounded-3xl shadow-xl border-b-4 border-[#D4AF37] text-center fade-in">
+                    <div class="flex justify-center mb-6"><i data-lucide="shield" class="w-12 h-12 text-[#D4AF37]"></i></div>
+                    <h3 class="text-2xl font-bold mb-4">Guardian Packaging</h3>
+                    <p class="text-gray-600">แพ็กเกจจิ้งเก็บอุณหภูมิพิเศษ แข็งแรง ทนทาน อาหารไม่หกเลอะเทอะ</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- Section 5: Legendary Menu --- -->
+    <section id="menu" class="py-24 bg-[#2C1B12]">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 text-[#D4AF37] fade-in">
+                📜 Legendary Menu
+            </h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Menu 1 -->
+                <div class="bg-[#F5F5DC] rounded-2xl overflow-hidden shadow-2xl fade-in">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=800&q=80" alt="Imperial Beef Bowl" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-1">ข้าวหน้าเนื้อขุนนาง</h3>
+                        <p class="text-[#D4AF37] font-mono text-sm mb-4">Imperial Beef Bowl</p>
+                        <p class="text-gray-700">เนื้อนุ่มละลายในปาก</p>
+                        <button class="mt-6 w-full py-3 border-2 border-[#2C1B12] rounded-lg font-bold hover:bg-[#2C1B12] hover:text-[#F5F5DC] transition-colors">
+                            เพิ่มลงในกระเป๋าเก็บของ
+                        </button>
+                    </div>
+                </div>
+                <!-- Menu 2 -->
+                <div class="bg-[#F5F5DC] rounded-2xl overflow-hidden shadow-2xl fade-in">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=800&q=80" alt="Deep Forest Pesto" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-1">สปาเกตตีเพรสโต้ป่าลึก</h3>
+                        <p class="text-[#D4AF37] font-mono text-sm mb-4">Deep Forest Pesto</p>
+                        <p class="text-gray-700">กลิ่นสมุนไพรสดชื่น</p>
+                        <button class="mt-6 w-full py-3 border-2 border-[#2C1B12] rounded-lg font-bold hover:bg-[#2C1B12] hover:text-[#F5F5DC] transition-colors">
+                            เพิ่มลงในกระเป๋าเก็บของ
+                        </button>
+                    </div>
+                </div>
+                <!-- Menu 3 -->
+                <div class="bg-[#F5F5DC] rounded-2xl overflow-hidden shadow-2xl fade-in">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=800&q=80" alt="Warrior's Fried Chicken" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-1">ไก่ทอดนักรบ</h3>
+                        <p class="text-[#D4AF37] font-mono text-sm mb-4">Warrior's Fried Chicken</p>
+                        <p class="text-gray-700">กรอบนอกนุ่มใน อิ่มนานตลอดคืน</p>
+                        <button class="mt-6 w-full py-3 border-2 border-[#2C1B12] rounded-lg font-bold hover:bg-[#2C1B12] hover:text-[#F5F5DC] transition-colors">
+                            เพิ่มลงในกระเป๋าเก็บของ
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- Section 6: Social Proof --- -->
+    <section class="py-24 bg-[#F5F5DC]">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto bg-white p-12 rounded-3xl shadow-2xl relative fade-in">
+                <div class="absolute -top-6 -left-6 w-16 h-16 text-[#D4AF37]"><i data-lucide="star" class="w-full h-full fill-current"></i></div>
+                <div class="text-center">
+                    <p class="text-2xl italic mb-8 leading-relaxed">
+                        "ตั้งแต่สั่งร้านนี้ ผมก็ลืมร้านอื่นไปเลย รสชาติเข้มข้น แพ็กเกจสวยมาก เหมือนได้รางวัลจากการทำเควสสำเร็จ!"
+                    </p>
+                    <div class="flex items-center justify-center gap-4">
+                        <div class="w-16 h-16 rounded-full bg-[#2C1B12] flex items-center justify-center text-white font-bold text-2xl">A</div>
+                        <div class="text-left">
+                            <h4 class="font-bold text-xl">คุณอาร์ท</h4>
+                            <p class="text-gray-500">นักศึกษาสายปั่นงาน</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- Section 7: The Final Offer --- -->
+    <section class="py-24 bg-[#D4AF37] text-[#2C1B12]">
+        <div class="container mx-auto px-6 text-center fade-in">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="text-4xl md:text-6xl font-black mb-6">🎁 ต้อนรับนักผจญภัยหน้าใหม่!</h2>
+                <div class="bg-[#2C1B12] text-[#F5F5DC] p-10 rounded-3xl mb-10 shadow-2xl">
+                    <p class="text-3xl font-bold mb-4">สั่งซื้อครั้งแรกวันนี้ ลดทันที <span class="text-[#D4AF37]">50 บาท</span></p>
+                    <p class="text-xl">+ แถมฟรี <span class="text-[#D4AF37]">"น้ำยาสมุนไพรฟื้นฟูพลัง"</span> (เครื่องดื่มสูตรพิเศษ) 1 ขวด</p>
+                </div>
+                <p class="text-2xl font-bold mb-8 flex items-center justify-center gap-2">
+                    <i data-lucide="flame" class="animate-pulse"></i>
+                    จำกัดเพียง 20 ชุดต่อวันเท่านั้น!
+                </p>
+                <button class="bg-[#2C1B12] text-[#F5F5DC] px-12 py-6 rounded-full text-2xl font-black hover:scale-105 transition-transform shadow-xl">
+                    รับสิทธิ์ก่อนใคร คลิกเลย!
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- Section 8: Footer --- -->
+    <footer class="py-16 bg-[#2C1B12] text-[#F5F5DC]/60 border-t border-white/10">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-12 mb-12">
+                <div>
+                    <div class="flex items-center gap-3 mb-6 text-[#D4AF37]">
+                        <i data-lucide="utensils-crossed" class="w-8 h-8"></i>
+                        <span class="text-2xl font-bold">The Gourmet Tavern</span>
+                    </div>
+                    <p class="leading-relaxed">
+                        โรงเตี๊ยมแห่งความอร่อยที่พร้อมส่งมอบมื้ออาหารระดับตำนานถึงมือคุณ 
+                        ทุกเมนูปรุงด้วยเวทมนตร์แห่งความใส่ใจ
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold text-xl mb-6">ติดต่อเรา</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="map-pin" class="w-5 h-5 text-[#D4AF37]"></i>
+                            ปทุมธานี, ประเทศไทย
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="phone" class="w-5 h-5 text-[#D4AF37]"></i>
+                            02-XXX-XXXX
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold text-xl mb-6">ติดตามเควสใหม่ๆ</h4>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#D4AF37] hover:text-[#2C1B12] transition-all"><i data-lucide="facebook"></i></a>
+                        <a href="#" class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#D4AF37] hover:text-[#2C1B12] transition-all"><i data-lucide="instagram"></i></a>
+                        <a href="#" class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#D4AF37] hover:text-[#2C1B12] transition-all"><i data-lucide="twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-12 border-t border-white/5 text-center text-sm">
+                © 2026 The Gourmet Tavern. All Rights Reserved. | Created for Legendary Adventurers.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Magic Sparkles Effect
+        const sparkleContainer = document.getElementById('sparkle-container');
+        function createSparkle() {
+            const sparkle = document.createElement('div');
+            sparkle.className = 'sparkle';
+            sparkle.style.left = Math.random() * 100 + '%';
+            sparkle.style.top = Math.random() * 100 + '%';
+            sparkle.style.animationDuration = (Math.random() * 2 + 1) + 's';
+            sparkle.style.animationDelay = Math.random() * 2 + 's';
+            sparkleContainer.appendChild(sparkle);
+            
+            setTimeout(() => {
+                sparkle.remove();
+            }, 3000);
+        }
+        setInterval(createSparkle, 200);
+
+        // Intersection Observer for Fade-in effects
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
